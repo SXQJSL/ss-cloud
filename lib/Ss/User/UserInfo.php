@@ -8,7 +8,7 @@ class UserInfo {
     public  $uid;
     private $db;
 
-    private $table = "user";
+    protected $table_user = "user";
 
     function __construct($uid=0){
         global $db;
@@ -18,7 +18,7 @@ class UserInfo {
 
     //user info array
     function UserArray(){
-        $datas = $this->db->select($this->table,"*",[
+        $datas = $this->db->select($this->table_user,"*",[
             "uid" => $this->uid,
             "LIMIT" => "1"
         ]);
@@ -31,10 +31,6 @@ class UserInfo {
 
     function GetEmail(){
         return $this->UserArray()['email'];
-    }
-    
-    function GetPlan(){
-        return $this->UserArray()['plan'];
     }
 
     function GetUserName(){
@@ -74,7 +70,7 @@ class UserInfo {
     }
 
     function GetRefCount(){
-        $c = $this->db->count($this->table,"uid",[
+        $c = $this->db->count($this->table_user,"uid",[
             "ref_by" => $this->uid
         ]);
         return $c;
@@ -103,66 +99,36 @@ class UserInfo {
     }
 
     function DelMe(){
-        $this->db->delete($this->table,[
+        $this->db->delete($this->table_user,[
             "uid" => $this->uid
         ]);
     }
     
     function Change_user_name($user_name){    
-        $this->db->update($this->table,[
+        $this->db->update($this->table_user,[
             "user_name" => $user_name
         ],['uid' => $this->uid]);
     }
     
     function Change_email($email){
-        $this->db->update($this->table,[
+        $this->db->update($this->table_user,[
             "email" => $email
         ],['uid' => $this->uid]);
     }
     
     function Change_pass($pass){
-        $this->db->update($this->table,[
+        $this->db->update($this->table_user,[
             "pass" => $pass
         ],['uid' => $this->uid]);
     }
     
-    function Change_passwd($passwd){
-        $this->db->update($this->table,[
-            "passwd" => $passwd
-        ],['uid' => $this->uid]);
-    }
     
-    function Change_plan($plan){
-        $this->db->update($this->table,[
-            "plan" => $plan
-        ],['uid' => $this->uid]);
-    }
-    
-    function Change_transfer_enable($transfer_enable){
-        $this->db->update($this->table,[
-            "transfer_enable" => $transfer_enable
-        ],['uid' => $this->uid]);
-    }
     
     function Change_enable($enable){
-        $this->db->update($this->table,[
+        $this->db->update($this->table_user,[
             "enable" => $enable
         ],['uid' => $this->uid]);
-    }
-    
-    function Change_port_enable($port,$enable){
-        $this->db->update("port",[
-            "enable" => $enable
-        ],['port' => $port]);
-    }
-    
-    
-    
-    function Change_remark($remark){
-        $this->db->update($this->table,[
-            "remark" => $remark
-        ],['uid' => $this->uid]);
-    }
+    } 
     
     function Get_username1($uid){
          $this->uid=$uid;

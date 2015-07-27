@@ -10,6 +10,6 @@ if($enable==1){
 }else{
     $enable=1;
 }
-$u = new \Ss\User\UserInfo();
+$u = new \Ss\Port\PortInfo();
 $u->Change_port_enable($port,$enable);
 

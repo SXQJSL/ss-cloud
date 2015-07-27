@@ -1,7 +1,5 @@
 <?php
-
 require_once '_main.php';
-$Users = new Ss\User\User();
 ?>
 
 
@@ -39,21 +37,24 @@ $Users = new Ss\User\User();
                                     <th>快捷操作</th>
                                 </tr>
                                 <?php
+                                $Ports = new Ss\Port\Port();
                                 $page=!empty($_GET['page']) ? $_GET['page'] : null;
-                                $page=$Users->Page($page);
-                                $us = $Users->ListUser($page);
+                                $page=$Ports->Page($page);
+                                $us = $Ports->ListPort($page);
+                                $portinfo= new Ss\Port\PortInfo();
+                                $userinfo= new Ss\User\UserInfo();
                                 foreach ( $us as $rs ){ ?>
                                     <tr>
-                                        <td>#<?php $getinfo= new Ss\User\UserInfo();
+                                        <td>#<?php 
                                         echo $rs['uid']; ?></td>
-                                        <td><?php echo $getinfo->Get_username1($rs['uid']); ?></td>
-                                        <td><?php echo $getinfo->GetEmail(); ?></td>
+                                        <td><?php echo $userinfo->Get_username1($rs['uid']); ?></td>
+                                        <td><?php echo $userinfo->GetEmail(); ?></td>
                                         <td><?php echo $rs['plan']; ?></td>
                                         <td><?php echo $rs['port']; ?></td>
                                         <td><?php \Ss\Etc\Comm::flowAutoShow($rs['transfer_enable']); ?></td>
                                         <td><?php \Ss\Etc\Comm::flowAutoShow(($rs['transfer_enable']-$rs['u']-$rs['d'])); ?></td>
                                         <td><?php \Ss\Etc\Comm::flowAutoShow(($rs['u']+$rs['d'])); ?></td>
-                                        <td><?php echo date('Y-m-d H:i:s',$getinfo->Get_last_check_in_time()); ?></td>
+                                        <td><?php echo date('Y-m-d H:i:s',$userinfo->Get_last_check_in_time()); ?></td>
                                         <td> <?php if($rs['enable']==1){echo '正常';}else{echo '<span style="color:red">锁定</span>';}?> </td>
                                         <td> <?php echo date('Y-m-d H:i:s',$rs['t']);?> </td>
                                         <td><?php if((time()-$rs['t'])<=100){echo '在线';}else {echo '';};?></td>

@@ -7,8 +7,9 @@ require_once '_main.php';
 if(!empty($_GET)){
     //获取id
     $port= $_GET['port'];
-    $u = new \Ss\User\PortInfo($port);
-    $rs = $u->PortArray();
+    $p = new \Ss\Port\PortInfo($port);
+    $rs = $p->PortArray();
+    $u =new \Ss\User\UserInfo($rs['uid']);
 }
 ?>
 
@@ -43,17 +44,17 @@ if(!empty($_GET)){
 
                             <div class="form-group">
                                 <label for="cate_title">用户名</label>
-                                <input  class="form-control" name="user_name" value="<?php echo $u->Get_username1($rs['uid']);?>" >
+                                <input  class="form-control" name="user_name" value="<?php echo $u->GetUserName();?>" >
                             </div>
 
                             <div class="form-group">
                                 <label for="cate_title">用户邮箱</label>
-                                <input  class="form-control" name="user_email" value="<?php echo $rs['email'];?>"  >
+                                <input  class="form-control" name="user_email" value="<?php echo $u->GetEmail();?>"  >
                             </div>
 
                             <div class="form-group">
                                 <label for="cate_title">用户密码</label>
-                                <input type="hidden" name="user_pass_hidden" value="<?php echo $rs['pass'];?>" >
+                                <input type="hidden" name="user_pass_hidden" value="<?php echo $u->GetPasswd();?>" >
                                 <input  class="form-control" name="user_pass" placeholder="新密码(不修改请留空)" >
                             </div>
 

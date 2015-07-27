@@ -100,11 +100,17 @@ require_once './function/_check.php';
                     </a>
                 </li>
 
-                <li>
-                    <a href="node.php">
-                        <i class="fa fa-sitemap"></i> <span>节点管理</span>
-                    </a>
-                </li>
+                <li class="treeview">
+              <a href="#">
+                <i class="fa fa-laptop"></i>
+                <span>节点管理</span>
+                <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="node.php"><i class="fa fa-circle-o"></i>商业节点</a></li>
+                <li><a href="node.php"><i class="fa fa-circle-o"></i>个人节点</a></li>
+              </ul>
+            </li>
                 
                 <li class="treeview">
               <a href="#">
