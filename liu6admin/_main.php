@@ -152,6 +152,9 @@ require_once './function/_check.php';
               <ul class="treeview-menu">
                 <li><a href="gift.php"><i class="fa fa-users"></i>节日礼物插件</a></li>
               </ul>
+              <ul class="treeview-menu">
+                <li><a href="record.php"><i class="fa fa-users"></i>节点详情</a></li>
+              </ul>
             </li>
                 <li>
                     <a href="sys.php">
