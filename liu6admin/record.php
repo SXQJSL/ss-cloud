@@ -24,6 +24,7 @@ require_once '_main.php';
                                     <th>ID</th>
                                     <th>服务器id</th>
                                     <th>通讯时间</th>
+                                    <th>在线人数</th>
 
                                 </tr>
                                 <?php
@@ -34,7 +35,7 @@ require_once '_main.php';
                                         <td>#<?php echo $rs['id']; ?></td>
                                         <td><?php echo $rs['node_id']; ?></td>
                                         <td><?php echo date('Y-m-d H:i:s',$rs['time']); ?></td>
-
+                                        <td><?php echo count(json_decode($rs['content'])) ; ?></td>
                                     </tr>
                                 <?php } ?>
                             </table>

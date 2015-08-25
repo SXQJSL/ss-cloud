@@ -15,7 +15,8 @@ namespace Ss\Node;
         $datas = $this->db->select($this->table, [
             "id",
             "node_id",
-            "time"
+            "time",
+            "content"
             ],[
     "ORDER" => "id DESC",
     "LIMIT" => 15
