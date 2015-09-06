@@ -7,7 +7,7 @@ class PortInfo{
     public  $port;
     private $db;
 
-    protected $table_port = "port";
+    protected $table = "ss_port";
 
     function __construct($port=0){
         global $db;
@@ -17,7 +17,7 @@ class PortInfo{
 
     //user info array
     function PortArray(){
-        $datas = $this->db->select($this->table_port,"*",[
+        $datas = $this->db->select($this->table,"*",[
             "port" => $this->port,
             "LIMIT" => "1"
         ]);
@@ -25,7 +25,7 @@ class PortInfo{
     }
 
     function GetPasswd(){
-        return $this->UserArray()['pass'];
+        return $this->UserArray()['passwd'];
     }
 
     
@@ -41,16 +41,8 @@ class PortInfo{
         return strtotime($this->RegDate());
     }
 
-    function InviteNumToZero(){
-        $this->db->update("user",[
-            "invite_num" => '0'
-        ],[
-            "port" => $this->port
-        ]);
-    }
-
     function GetRefCount(){
-        $c = $this->db->count($this->table_port,"port",[
+        $c = $this->db->count($this->table,"port",[
             "ref_by" => $this->port
         ]);
         return $c;
@@ -60,60 +52,38 @@ class PortInfo{
         return $this->UserArray()['last_check_in_time'];
     }
 
-    function DelMe(){
-        $this->db->delete($this->table_port,[
+    function Del_port(){
+        $this->db->delete($this->table,[
             "port" => $this->port
         ]);
     }
     
-    function Change_user_name($user_name){    
-        $this->db->update($this->table_port,[
-            "user_name" => $user_name
-        ],['port' => $this->port]);
-    }
-    
-    function Change_email($email){
-        $this->db->update($this->table_port,[
-            "email" => $email
-        ],['port' => $this->port]);
-    }
-    
-    function Change_pass($pass){
-        $this->db->update($this->table_port,[
-            "pass" => $pass
-        ],['port' => $this->port]);
-    }
-    
     function Change_passwd($passwd){
-        $this->db->update($this->table_port,[
+        $this->db->update($this->table,[
             "passwd" => $passwd
         ],['port' => $this->port]);
     }
     
     function Change_plan($plan){
-        $this->db->update($this->table_port,[
+        $this->db->update($this->table,[
             "plan" => $plan
         ],['port' => $this->port]);
     }
     
     function Change_transfer_enable($transfer_enable){
-        $this->db->update($this->table_port,[
+        $this->db->update($this->table,[
             "transfer_enable" => $transfer_enable
         ],['port' => $this->port]);
     }
     
-
-    
     function Change_port_enable($port,$enable){
-        $this->db->update("port",[
+        $this->db->update($this->table,[
             "enable" => $enable
         ],['port' => $port]);
     }
-    
-    
-    
+     
     function Change_remark($remark){
-        $this->db->update($this->table_port,[
+        $this->db->update($this->table,[
             "remark" => $remark
         ],['port' => $this->port]);
     }  

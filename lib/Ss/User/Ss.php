@@ -8,6 +8,7 @@ class Ss {
     //
     public  $uid;
     public $db;
+    private $ss_port="ss_port";
 
     function  __construct($uid=0){
         global $db;
@@ -25,8 +26,10 @@ class Ss {
     }
 
     //返回端口号
-    function  get_port(){
-         return $this->get_user_info_array()['port'];
+    function  get_all_ports(){
+         return $this->db->select($this->ss_port,"*",[
+             "uid"=>$this->uid
+         ]);
     }
 
     //获取流量
@@ -34,20 +37,6 @@ class Ss {
         return $this->get_user_info_array()['u']+$this->get_user_info_array()['d'];
     }
 
-    //返回密码
-    function  get_pass(){
-        return $this->get_user_info_array()['passwd'];
-    }
-
-    //返回Plan
-    function  get_plan(){
-        return $this->get_user_info_array()['plan'];
-    }
-
-    //返回transfer_enable
-    function  get_transfer_enable(){
-        return $this->get_user_info_array()['transfer_enable'];
-    }
 
     //get money
     function  get_money(){
@@ -60,10 +49,6 @@ class Ss {
         return $this->get_transfer_enable() - $this->get_transfer();
     }
 
-    //get last time
-    function get_last_unix_time(){
-        return $this->get_user_info_array()['t'];
-    }
 
     //get last check in time
     function get_last_check_in_time(){

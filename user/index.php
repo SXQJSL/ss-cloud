@@ -37,7 +37,7 @@ $unix_time = $oo->get_last_unix_time();
         <!-- Main content -->
         <section class="content">
             <!-- START PROGRESS BARS -->
-            <div class="row">
+            <div class="column">
                 <div class="col-md-6">
                     <div class="box box-solid">
                         <div class="box-header">
@@ -50,29 +50,6 @@ $unix_time = $oo->get_last_unix_time();
                             <p>如果有其他变动，我们也将在群中进行通知，请还没加群的you赶紧加入我们的群吧<a target="_blank" href="http://shang.qq.com/wpa/qunwpa?idkey=78d4b571c52e73bd07f4483395a42d04ebb2949b14a51b56fadf84509c0d2930"><img border="0" src="http://pub.idqqimg.com/wpa/images/group.png" alt="管道工Club交流群" title="管道工Club交流群"></a>  <——点击一键加群</p> 
                         </div><!-- /.box-body -->
                     </div><!-- /.box -->
-                </div><!-- /.col (right) -->
-
-                <div class="col-md-6">
-                    <div class="box box-solid">
-                        <div class="box-header">
-                            <h3 class="box-title">流量使用情况</h3>
-                        </div><!-- /.box-header -->
-                        <div class="box-body">
-                            <p> 已用流量：<?php echo $transfers."MB";?> </p>
-                            <div class="progress progress-striped">
-                                <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $used_100; ?>%">
-                                    <span class="sr-only">Transfer</span>
-                                </div>
-                            </div>
-                            <p> 可用流量：<?php echo $all_transfer ."GB";?> </p>
-                            <p> 剩余流量：<?php echo  $unused_transfer."GB";?> </p>
-                        </div><!-- /.box-body -->
-                    </div><!-- /.box -->
-                </div><!-- /.col (left) -->
-                </div><!-- /.row -->
-
-                 <div class="row">
-                <div class="col-md-6">
                     <div class="box box-solid">
                         <div class="box-header">
                             <h3 class="box-title">签到获取流量</h3>
@@ -88,23 +65,35 @@ $unix_time = $oo->get_last_unix_time();
                             <p>上次签到时间：<code><?php echo date('Y-m-d H:i:s',$oo->get_last_check_in_time());?></code></p>
                         </div><!-- /.box-body -->
                     </div><!-- /.box -->
-                </div><!-- /.col (right) -->
+                </div><!-- /.col (left) -->
 
+
+                </div><!-- /.column -->
+
+                 <div class="column">
                 <div class="col-md-6">
                     <div class="box box-solid">
                         <div class="box-header">
-                            <h3 class="box-title">账号端口连接信息</h3>
+                            <h3 class="box-title">端口信息</h3>
                         </div><!-- /.box-header -->
                         <div class="box-body">
-                            <p> 状态：<?php echo $oo->getUserenable();?> </p>
-                            <p> 端口：<code><?php echo $oo->get_port();?></code> </p>
-                            <p> 密码：<?php echo $oo->get_pass();?> </p>
-                            <p> 套餐：<span class="label label-info"> <?php echo $oo->get_plan();?> </span> </p>
-                            <p> 最后使用时间：<code><?php echo date('Y-m-d H:i:s',$unix_time);  ?></code> </p>
+                            <p> 状态：</p>
+                            <p> 端口：<code></code> </p>
+                            <p> 密码：</p>
+                            <p> 套餐：<span class="label label-info">  </span> </p>
+                            <p> 最后使用时间：<code></code> </p>
+                            <p> 已用流量：</p>
+                            <div class="progress progress-striped">
+                                <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $used_100; ?>%">
+                                    <span class="sr-only">Transfer</span>
+                                </div>
+                            </div>
+                            <p> 可用流量：</p>
+                            <p> 剩余流量： </p>
                         </div><!-- /.box-body -->
                     </div><!-- /.box -->
                 </div><!-- /.col (right) -->
-            </div><!-- /.row -->
+            </div><!-- /.column -->
             <!-- END PROGRESS BARS -->
         </section><!-- /.content -->
     </div><!-- /.content-wrapper -->

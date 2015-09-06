@@ -131,40 +131,7 @@ require_once '_check.php';
                     </a>
                 </li>
                 
-                <li>
-                    <a href="">
-                        <i class="fa fa-paper-plane"></i> <span>流量交易市场（未启用）</span>
-                    </a>
-                </li>
-                
-                <li>
-                    <a href="">
-                        <i class="fa fa-pagelines"></i> <span>流量转赠（未启用）</span>
-                    </a>
-                </li>
-                <li>
-                <a href="">
-                        <i class="fa fa-credit-card"></i> <span>流量卡充值（未启用）</span>
-                    </a>
-                </li>
-                
-                <li>
-                    <a href="">
-                        <i class="fa fa-money"></i> <span>资费中心（未启用）</span>
-                    </a>
-                </li>
-                
-                <li>
-                    <a href="">
-                        <i class="fa fa-question"></i> <span>工单中心（未启用）</span>
-                    </a>
-                </li>
-                
-                <li>
-                    <a href="">
-                        <i class="fa fa-cog"></i> <span>服务器管理（暂只对独立服务器用户开放）</span>
-                    </a>
-                </li>
+               
                 
             </ul>
         </section>

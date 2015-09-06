@@ -10,9 +10,8 @@ if($length==0){
     exit();
 }
 for($n=0;$n<$length;$n++){
-    if($datas[$n]['u']<=60){
-        continue;
-    }
+   if($datas[$n]['u'] >55 && $datas[$n]['d'] > 0){
     $apiuser->updataUser($datas[$n]['p'],$datas[$n]['u'],$datas[$n]['d'],$datas[$n]['time']);
-}
+}}
+
 echo 'ok' ;

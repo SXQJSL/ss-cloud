@@ -18,3 +18,4 @@ if(isset($_COOKIE['uid'])|| $_COOKIE['uid'] != ''){
     exit();
 }
 $oo = new Ss\User\Ss($uid);
+$oo_port= new Ss\Port\Ss($uid);
